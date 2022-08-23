@@ -230,7 +230,7 @@
                                 <rect key="frame" x="92" y="504" width="229" height="74"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ja-ka-fRd">
-                                <rect key="frame" x="92" y="728" width="229" height="54"/>
+                                <rect key="frame" x="92" y="730" width="229" height="54"/>
                                 <color key="backgroundColor" red="0.46884822845458984" green="0.79239261150360107" blue="0.052008770406246185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="HGv-Qx-6HV"/>
@@ -246,7 +246,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppVersionText" translatesAutoresizingMaskIntoConstraints="NO" id="L5r-YE-XeY">
-                                <rect key="frame" x="155" y="817" width="113" height="27"/>
+                                <rect key="frame" x="155" y="819" width="113" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="s0Z-oR-FYo"/>
                                 </constraints>
@@ -255,7 +255,7 @@
                         <viewLayoutGuide key="safeArea" id="Oaa-Un-wgw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7ja-ka-fRd" firstAttribute="top" secondItem="iAi-GS-KOT" secondAttribute="bottom" constant="150" id="72s-Nn-qTT"/>
+                            <constraint firstItem="7ja-ka-fRd" firstAttribute="top" secondItem="iAi-GS-KOT" secondAttribute="bottom" constant="152" id="72s-Nn-qTT"/>
                             <constraint firstItem="L5r-YE-XeY" firstAttribute="leading" secondItem="Oaa-Un-wgw" secondAttribute="leading" constant="155" id="7BY-Qp-wWa"/>
                             <constraint firstItem="Oaa-Un-wgw" firstAttribute="trailing" secondItem="L5r-YE-XeY" secondAttribute="trailing" constant="146" id="OiS-cx-Boq"/>
                             <constraint firstItem="Oaa-Un-wgw" firstAttribute="trailing" secondItem="iAi-GS-KOT" secondAttribute="trailing" constant="93" id="S6C-Tk-Q8j"/>
