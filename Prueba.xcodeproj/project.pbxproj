@@ -17,6 +17,7 @@
 		B8386B0128B43012005428DE /* PruebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386B0028B43012005428DE /* PruebaTests.swift */; };
 		B8386B0B28B43012005428DE /* PruebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386B0A28B43012005428DE /* PruebaUITests.swift */; };
 		B8386B0D28B43012005428DE /* PruebaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386B0C28B43012005428DE /* PruebaUITestsLaunchTests.swift */; };
+		B8C7307928B6C301009CA87C /* Notas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7307828B6C301009CA87C /* Notas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B8386B0628B43012005428DE /* PruebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8386B0A28B43012005428DE /* PruebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaUITests.swift; sourceTree = "<group>"; };
 		B8386B0C28B43012005428DE /* PruebaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8C7307828B6C301009CA87C /* Notas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				B8386AF428B43012005428DE /* LaunchScreen.storyboard */,
 				B8386AF728B43012005428DE /* Info.plist */,
 				B8386AEF28B43011005428DE /* Prueba.xcdatamodeld */,
+				B8C7307828B6C301009CA87C /* Notas.swift */,
 			);
 			path = Prueba;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				B8386AEB28B43011005428DE /* ViewController.swift in Sources */,
 				B8386AE728B43011005428DE /* AppDelegate.swift in Sources */,
+				B8C7307928B6C301009CA87C /* Notas.swift in Sources */,
 				B8386AF128B43011005428DE /* Prueba.xcdatamodeld in Sources */,
 				B8386AE928B43011005428DE /* SceneDelegate.swift in Sources */,
 			);
