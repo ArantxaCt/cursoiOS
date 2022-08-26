@@ -9,126 +9,71 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var nombreTextField: UITextField!
+    @IBOutlet weak var correoTextField: UITextField!
+    @IBOutlet weak var contrasenaTextField: UITextField!
+    @IBOutlet weak var confirmaContrasenaTextField: UITextField!
+    @IBOutlet weak var mensajeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        var variable: Int = 3//declara variable cambia el valor, i es un entero
-        var variable1 = 0 //se infiere el tipo de valor
-        let v1 = 5//declara constante no cambia el valor
-        
-        var varEntero: Int
-        let varFloat: Float = 1.5//pocos decimales
-        let varDouble: Double //muchos decimales
-        varEntero = 2
-        let letBoolean: Bool = true
-        let letString: String = "prueba"
-        var someTuple = (top: 10, bottom: 12)
-        someTuple = (top: 4, bottom: 42)
-        someTuple = (9, 99)
-        //someTuple = (left: 4, right: 42) //error por diferencia de nombres en las variables
-        let letOptional: Int? //puede o no tener valor
-        let someArray: Array<String> = ["Alex", "Brian", "Dave"]
-        let someArrayActual: [String] = ["Alex", "Brian", "Dave"]
-        let someArray2 = [String]() //arreglo vacio para que posteriormente será llenado
-        let someDictionary: [String: Int] = ["Alex": 31, "Paul": 39] //tipos de datos que se van a utilizar
-        print(someDictionary["Alex"]) //imprimirá Optional(31)
-        print("Hola estoy concatenando \(letString)", letBoolean)
-        print(variable + v1)
-        print(Float(v1) + varFloat)
-        var red, blue, green: Double //varias variables del mismo tipo
-        
-        var optInteger: Int?
-        optInteger = 1
-        print("opcional: ", optInteger) //imprime opcional: Optional(1)
-        
-        //unwrap -> sacar valor del opcional, no es una palabraa reservada pero es el termino adecuado para referirse a quital el Optional para solo tener el valor
-        
-        //force unwrap se define con una admiración !
-        //desenpaquetado seguro del optional -> if let -> guard let
-        
-        var color = semaforo(name: "azul")
-        
-        if let unwrappedClor = color {
-            print("Exito ", unwrappedClor)
+    }
+    
+    @IBAction func motrarContrasenasButton(_ sender: Any) {
+        if contrasenaTextField.isSecureTextEntry && confirmaContrasenaTextField.isSecureTextEntry {
+            contrasenaTextField.isSecureTextEntry = false
+            confirmaContrasenaTextField.isSecureTextEntry = false
         } else {
-            print("error ")
+            contrasenaTextField.isSecureTextEntry = true
+            confirmaContrasenaTextField.isSecureTextEntry = true
+        }
+    }
+    @IBAction func registrarButton(_ sender: Any) {
+        if let nombre = nombreTextField.text, nombre.isEmpty {
+            alertWithTitle(title: "Error", message: "Nombre vacío", ViewController: self)
+            return
         }
         
-        guard let otroColor = color else { return }
-        
-        let i = 0
-        for i in i ... 10 {
-            print(i)
-        } //toca 1 y 10
-        
-        for i in i ..< 10 {
-            print(i)
-        } //toca 1 y hasta 9
-        
-        if color == "verde" {
-            print("es color: \(color)")
+        if !validEmail() {
+            alertWithTitle(title: "Error", message: "Email no válido o vacío", ViewController: self)
+            return
         }
         
-        let age = 15
-        switch age {
-        case 0, 1, 2:
-            print("tas chiquito")
-        case 2 ... 10:
-            print("tas mediano")
-        case 11 ..< 15:
-            print("tas grande")
-        default:
-            print("tas muy grande xddd")
+        if let contrasena = contrasenaTextField.text, contrasena.isEmpty {
+            alertWithTitle(title: "Error", message: "Contraseña vacía", ViewController: self)
+            return
         }
         
-        var someInts = [Int]()
-        someInts.append(20)
-        someInts.append(30)
-        someInts += [40]
-        
-        var someVar = someInts[0]
-        print("Value of first element is \(someVar)")
-        print("Value of second element is \(someInts[1])")
-        
-        var someStr = [String]()
-        someStr.append("Apple")
-        someStr.append("Amazon")
-        someStr.append("Google")
-        
-        for item in someStr {
-            print(item)
+        if contrasenaTextField.text == confirmaContrasenaTextField.text {
+            mensajeLabel.text = "Si son iguales"
+            mensajeLabel.textColor = UIColor.systemGreen
+            return
+        } else {
+            mensajeLabel.text = "No coinciden"
+            mensajeLabel.textColor = UIColor.red
+            return
         }
-        //como puedo imprimir el index? INVESTIGAR
-        
-        var dictionaryString: [String: String] = ["nombre": "luis", "apellido": "yañez"]
-        print("Valor de nombre es: \(dictionaryString["nombre"])")
-        //Any significa cualquiera [String: Any]
-        
-        let cadena = "1"
-        var numero: Int
-        numero = cadena as? Int ?? 2// as? -> si puedes haz el cast, sino no lo hagas
-        //?? -> si esto falla, has esto siguiente
-        
-        greet(person: "Jose Luis")
     }
     
-    func semaforo(name: String) -> String? {
-        if name == "rojo" { return "rojo" }
-        if name == "amarillo" { return "amarillo" }
-        if name == "verde" { return "verde" }
-        
-        return nil
+    func validEmail() -> Bool {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            guard let email = self.correoTextField.text?.replacingOccurrences(of: " ", with: ""), !email.isEmpty, emailTest.evaluate(with: email) else {
+                self.becomeFirstResponder()
+                if !(self.correoTextField.text?.isEmpty ?? true) {
+                    debugPrint("Campo vacio")
+                }
+                return false
+            }
+            return true
     }
     
-    func greet(person: String) -> String {
-        let greeting = "Hello, " + person + "!"
-        return greeting
-    }
+    func alertWithTitle(title: String!, message: String, ViewController: UIViewController) {
+         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+         alert.addAction(action)
+        ViewController.present(alert, animated: true, completion: nil)
+     }
     
-    func greet1(persona vvperson: Int) -> String {
-        let vvperson = 1
-        return "si"
-    }
-
 }
 
